@@ -31,7 +31,8 @@ with open(csvpath) as csvfile:
 
         #Calculate changes in "Profit/Losses"
         Change = MonthlyProfit - PreviousProfit
-        ChangeTotal = ChangeTotal + Change #????Currently just returning profit of final date????
+        if PreviousProfit != 0:
+            ChangeTotal = ChangeTotal + Change
 
         #Find greatest increase/decrease in profits
         if increase <= Change:
@@ -45,7 +46,7 @@ with open(csvpath) as csvfile:
         PreviousProfit = MonthlyProfit
     
     #Calculate average change in "Profit/Losses"
-    AvgChange = round((ChangeTotal / Rows), 2)
+    AvgChange = round((ChangeTotal / (Rows-1)), 2)
 
 #Print Analysis to terminal
 Analysis = ['Financial Analysis', '----------------------------', f"Total Months: {Rows}", 
