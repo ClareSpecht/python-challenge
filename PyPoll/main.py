@@ -44,8 +44,11 @@ str3 = (f"Total Votes: {Votes}")
 str4 = []
 for breakdown in range(len(Candidates)):
     str4.append(f'{Candidates[breakdown]}: {percentages[breakdown]}% ({CandVotes[breakdown]})')
+
+#Determine winner based on who had most votes
+Winner = max(CandVotes)
     
-str5 = (f"Winner: ")
+str5 = (f"Winner: {Candidates[CandVotes.index(Winner)]}")
 
 Analysis = [str1, str2, str3, str2, *str4, str2, str5, str2]
 
